@@ -118,7 +118,7 @@
   </div>
 </div>
 
-<div class="public-con">
+<div class="public-con pb80">
   <div class="wrap">
     <div class="list-bar flex-item">
       <h2 class="font40">烤箱<small>（14）</small></h2>
@@ -280,6 +280,10 @@
         </a>
       </li>
     </ul>
+    <div class="text-center">
+      <a href="javascript:;" class="load-more btn-style1"><span>加载更多</span></a>
+    </div>
+    
   </div>
 </div>
 
@@ -376,24 +380,24 @@
       <li>
         <div class="img">
           <a href="javascript:;" class="compare-item-close iconfont icon-close"></a>
-          <img src="img/product_img1.png" alt="">
-          <h4>BSK874220M</h4>
+          <div class="img flex-middle"><img src="img/product_img1.png" alt=""></div>
+          <h4 class="font20">BSK874220M</h4>
         </div>
       </li>
       <li>
         <div class="img">
           <a href="javascript:;" class="compare-item-close iconfont icon-close"></a>
-          <img src="img/product_img1.png" alt="">
-          <h4>BSK874220M</h4>
+          <div class="img flex-middle"><img src="img/product_img1.png" alt=""></div>
+          <h4 class="font20">BSK874220M</h4>
         </div>
       </li>
     </ul>
     <div class="compare-bar">
-      <div class="compare-add">
+      <div class="compare-add flex-middle">
         <div class="add-icon"></div>
         <p>添加一款产品</p>
       </div>
-      <div class="compare-start">
+      <div class="compare-start flex-middle">
         <a href="javascript:;" class="compare-start-btn btn-style2">立即对比</a>
         <p>*最多添加三款产品进行对比</p>
       </div>
@@ -401,7 +405,7 @@
   </div>
 </div>
 
-<a href="javascript:;" class="backtop backtop-show iconfont icon-up"></a>
+<a href="javascript:;" class="backtop page-backtop iconfont icon-up"></a>
 
 </body>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -421,6 +425,12 @@ $(function(){
       }else{
         $(this).addClass('selected')
       }
+    }
+    console.log(selectedItem.length)
+    if(compareItem.filter('.selected').length>0){
+      $('.compare').addClass('compare-show')
+    }else{
+      $('.compare').removeClass('compare-show')
     }
   })
 

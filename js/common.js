@@ -38,4 +38,21 @@ $('.select-group').on('click','li',function(){
   var val = $(this).attr('data-value');
   text.html(html);
   input.val(val);
+});
+
+
+//回到顶部
+var windowHeight = $(window).height();
+$(window).on('scroll',function(){
+  if($(this).scrollTop()>windowHeight){
+    $('.page-backtop').addClass('backtop-show')
+  }else{
+    $('.page-backtop').removeClass('backtop-show')
+  }
+});
+
+$('.page-backtop').on('click',function(){
+  $('html,body').animate({
+    scrollTop: 0
+  },300)
 })
