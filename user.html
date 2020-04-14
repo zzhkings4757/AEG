@@ -11,6 +11,8 @@
 <meta name="author" content="author,email address">
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.mobile.css"/>
 <link rel="stylesheet" type="text/css" href="css/base.css"/>
 <link rel="stylesheet" type="text/css" href="css/animate.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -20,6 +22,11 @@
 <!-- header start! -->
 <div class="header animated slideInDown">
   <div class="wrap flex-item">
+    <a href="javascript:;" class="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
     <a href="javascript:;" class="hd-logo">
       <img src="img/logo.png" alt="LOGO">
     </a>
@@ -180,18 +187,18 @@
     </div>
     <ul class="hd-btns flex-item">
       <li>
-        <a href="javascript:;" class="user-login iconfont icon-user"></a>
+        <a href="javascript:;" class="user-login iconfont icon-user flex-item"><span>用户名</span></a>
       </li>
       <li class="btn-wrap-search">
         <a href="javascript:;" class="hd-search iconfont icon-search"></a>
       </li>
-      <li class="btn-wrap-memu">
+      <!-- <li class="btn-wrap-memu">
         <a href="javascript:;" class="menu-btn">
           <span></span>
           <span></span>
           <span></span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="hd-line"></div>
   </div>
@@ -494,16 +501,16 @@
 
 <a href="javascript:;" class="backtop page-backtop iconfont icon-up"></a>
 
-<!-- 已购信息弹窗 -->
+<!-- 我的信息弹窗 -->
 <div class="popup purchased-popup">
   <div class="popup-wrap flex-middle">
     <div class="popup-box purchased">
       <a href="javascript:;" class="popup-close iconfont icon-close"></a>
-      <div class="popup-tit font32 color-white">已购信息</div>
-      <div class="popup-con">
+      <div class="popup-tit font32 color-white">我的信息</div>
+      <div class="popup-con infos-con">
         <ul>
           <li>
-            <span>您的姓名：</span>
+            <span>您的昵称：</span>
             <p>jumpjumptigerC</p>
           </li>
           <li>
@@ -511,24 +518,40 @@
             <p>Guangzhou@AEG.com</p>
           </li>
           <li>
-            <span>联系电话：</span>
+            <span>手机号：</span>
             <p>13485759309</p>
           </li>
           <li>
-            <span>联系地址：</span>
-            <p>广东省广州市越秀区广州大道</p>
+            <span>生日：</span>
+            <p>1983-12-11</p>
           </li>
           <li>
-            <span>产品类型:</span>
-            <p>60厘米SteamCrisp 蒸汽烤箱</p>
-          </li>
-          <li>
-            <span>产品型号：</span>
-            <p>BSK874220M</p>
+            <span>密码</span>
+            <p>********</p>
           </li>
         </ul>
         <div class="form-btns pb80 text-center">
-          <a href="javascript:;" class="btn-style1"><span>查看详情</span></a>
+          <a href="javascript:;" class="btn-style1 purchased-edit-btn"><span>修改</span></a>
+        </div>
+      </div>
+      <div class="popup-con edit-con">
+        <div class="form-group">
+            <input type="text" placeholder="请输入您的昵称">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="请输入您的邮箱">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="请输入您的手机号">
+          </div>
+          <div class="form-group">
+            <input type="text" id="Birthday" autocomplete="off" placeholder="请输入您的生日">
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="请输入您的密码">
+          </div>
+        <div class="form-btns pb80 pt40 text-center">
+          <a href="javascript:;" class="btn-style1 purchased-save-btn"><span>保存</span></a>
         </div>
       </div>
     </div>
@@ -651,7 +674,7 @@
           <div class="form-tips mt20">
             <p>由于系统等原因,在本网站进行的可能会有延迟.为保证及时为处理,欢迎拨打4008583388</p>
           </div>
-          <div class="form-btns pad60">
+          <div class="form-btns pad60 text-center">
             <a href="javascript:;" class="btn-style1"><span>提交</span></a>
           </div>
         </div>
@@ -664,10 +687,27 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="layui/layui.js"></script>
 <script>
 $(function(){
 
   new WOW().init();
+
+  layui.use('laydate', function(){
+    var laydate = layui.laydate;
+    laydate.render({
+      elem: '#Birthday',
+      trigger: 'click',
+      theme: '#333333'
+    });
+  });
+
+  $('.purchased-edit-btn').on('click',function(){
+    $('.purchased').addClass('on-edit')
+  });
+  $('.purchased-save-btn').on('click',function(){
+    $('.purchased').removeClass('on-edit')
+  })
 
   $('.tab-menu a').on('click',function(){
     var index = $(this).index();

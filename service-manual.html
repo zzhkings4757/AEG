@@ -21,6 +21,11 @@
 <!-- header start! -->
 <div class="header animated slideInDown">
   <div class="wrap flex-item">
+    <a href="javascript:;" class="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
     <a href="javascript:;" class="hd-logo">
       <img src="img/logo.png" alt="LOGO">
     </a>
@@ -181,18 +186,18 @@
     </div>
     <ul class="hd-btns flex-item">
       <li>
-        <a href="javascript:;" class="user-login iconfont icon-user"></a>
+        <a href="javascript:;" class="user-login iconfont icon-user flex-item"><span>用户名</span></a>
       </li>
       <li class="btn-wrap-search">
         <a href="javascript:;" class="hd-search iconfont icon-search"></a>
       </li>
-      <li class="btn-wrap-memu">
+      <!-- <li class="btn-wrap-memu">
         <a href="javascript:;" class="menu-btn">
           <span></span>
           <span></span>
           <span></span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="hd-line"></div>
   </div>
@@ -286,7 +291,7 @@
   </div>
   <div class="manual-sec mt60 wow fadeInUpDis">
     <h3 class="font48 text-center color-white">用户手册</h3>
-    <ul class="manual-list1 tab-menu1 clearfix mt60">
+    <!-- <ul class="manual-list1 tab-menu1 clearfix mt60">
       <li>
         <a href="javascript:;">
           <img src="img/manual_icon1.png" alt="">
@@ -347,7 +352,76 @@
           <p>咖啡机</p>
         </a>
       </li>
-    </ul>
+    </ul> -->
+    <div class="manual-menu">
+      <div class="manual-list1 tab-menu1 mt60 swiper-container">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon1.png" alt="">
+              <p>洗衣机</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon2.png" alt="">
+              <p>干衣机</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon3.png" alt="">
+              <p>洗干一体机</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon4.png" alt="">
+              <p>烤箱</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon5.png" alt="">
+              <p>洗碗机</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon6.png" alt="">
+              <p>冰箱</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon7.png" alt="">
+              <p>抽油烟机</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon8.png" alt="">
+              <p>灶具</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon9.png" alt="">
+              <p>抽屉</p>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="javascript:;">
+              <img src="img/manual_icon10.png" alt="">
+              <p>咖啡机</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a href="javascript:;" class="manual-menu-btn manual-menu-prev iconfont icon-left"></a>
+      <a href="javascript:;" class="manual-menu-btn manual-menu-next iconfont icon-right"></a>
+    </div>
+    
     <div class="manual-tab manual-tab1 swiper-container mt40">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -1015,34 +1089,27 @@ $(function(){
     $(this).addClass('on').siblings().removeClass('on');
     $('.manual-tab1 .swiper-slide').eq(index).addClass('active').siblings().removeClass('active');
   })
-
-  // var manualTab1 = new Swiper('.manual-tab1', {
-  //   autoHeight: true,
-  //   effect : 'fade',
-  //   fadeEffect: {
-  //     crossFade: true,
-  //   },
-  //   allowTouchMove: false
-  // });
-  // $('.tab-menu1 li a').on('click',function(){
-  //   var index = $(this).parent('li').index();
-  //   $(this).parent('li').addClass('on').siblings().removeClass('on');
-  //   manualTab1.slideTo(index,300,false)
-  // });
-
-  // var manualTab2 = new Swiper('.manual-tab2', {
-  //   autoHeight: true,
-  //   effect : 'fade',
-  //   fadeEffect: {
-  //     crossFade: true,
-  //   },
-  //   allowTouchMove: false
-  // });
-  // $('.tab-menu2 li a').on('click',function(){
-  //   var index = $(this).parent('li').index();
-  //   $(this).parent('li').addClass('on').siblings().removeClass('on');
-  //   manualTab2.slideTo(index,300,false)
-  // })
+  var manualMenu = new Swiper('.manual-list1', {
+    slidesPerView: 7,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.manual-menu-next',
+      prevEl: '.manual-menu-prev',
+    },
+    breakpoints: {
+      1440: {
+        spaceBetween: 10,
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+      767: {
+        slidesPerView: 3,
+        spaceBetween: 5,
+      }
+    }
+  });
 
 });
 </script>

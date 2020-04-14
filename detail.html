@@ -22,6 +22,11 @@
 <!-- header start! -->
 <div class="header animated slideInDown">
   <div class="wrap flex-item">
+    <a href="javascript:;" class="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
     <a href="javascript:;" class="hd-logo">
       <img src="img/logo.png" alt="LOGO">
     </a>
@@ -182,18 +187,18 @@
     </div>
     <ul class="hd-btns flex-item">
       <li>
-        <a href="javascript:;" class="user-login iconfont icon-user"></a>
+        <a href="javascript:;" class="user-login iconfont icon-user flex-item"><span>用户名</span></a>
       </li>
       <li class="btn-wrap-search">
         <a href="javascript:;" class="hd-search iconfont icon-search"></a>
       </li>
-      <li class="btn-wrap-memu">
+      <!-- <li class="btn-wrap-memu">
         <a href="javascript:;" class="menu-btn">
           <span></span>
           <span></span>
           <span></span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="hd-line"></div>
   </div>
@@ -361,7 +366,7 @@
               </li>
               <li class="col-50">
                 <div class="list-box col-50">
-                  <div class="box-tit font24">基本参数</div>
+                  <div class="box-tit font24"></div>
                   <p>
                     <span>电压/频率</span>
                     <span>220-240V/50-60Hz</span>
@@ -434,7 +439,7 @@
                 <h5 class="font20">60cm高产品均<br>可适用于两种安装方式。</h5>
               </div>
               <div class="img">
-                <img src="img/installation.png" alt="">
+                <img src="img/icon_kaoxiang.png" alt="">
               </div>
             </div>
           </div>
@@ -712,6 +717,16 @@
 $(function(){
 
   new WOW().init();
+
+  function setVideoWrapSize(){
+    var videoWrap = $('.detail-video .video-img');
+    var w = videoWrap.width();
+    videoWrap.height(w*80/144);
+  }
+  setVideoWrapSize();
+  $(window).resize(function(){
+    setVideoWrapSize()
+  })
 
   //顶部图片轮播
   var mySwiper = new Swiper('.goods-swiper .swiper-container', {

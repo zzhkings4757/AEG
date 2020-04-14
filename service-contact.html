@@ -20,6 +20,11 @@
 <!-- header start! -->
 <div class="header animated slideInDown">
   <div class="wrap flex-item">
+    <a href="javascript:;" class="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
     <a href="javascript:;" class="hd-logo">
       <img src="img/logo.png" alt="LOGO">
     </a>
@@ -180,18 +185,18 @@
     </div>
     <ul class="hd-btns flex-item">
       <li>
-        <a href="javascript:;" class="user-login iconfont icon-user"></a>
+        <a href="javascript:;" class="user-login iconfont icon-user flex-item"><span>用户名</span></a>
       </li>
       <li class="btn-wrap-search">
         <a href="javascript:;" class="hd-search iconfont icon-search"></a>
       </li>
-      <li class="btn-wrap-memu">
+      <!-- <li class="btn-wrap-memu">
         <a href="javascript:;" class="menu-btn">
           <span></span>
           <span></span>
           <span></span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="hd-line"></div>
   </div>
@@ -230,17 +235,17 @@
     <div class="contact-box fr">
       <ul>
         <li>
-          <i class="iconfont icon-tell"></i>
+          <i class="icon1"></i>
           <h4>电话热线</h4>
           <h3>400 858 3388</h3>
         </li>
         <li>
-          <i class="iconfont icon-email"></i>
+          <i class="icon2"></i>
           <h4>电子邮件</h4>
           <h3>dyj@degchina.cn</h3>
         </li>
         <li>
-          <i class="iconfont icon-marker"></i>
+          <i class="icon3"></i>
           <h4>联系地址</h4>
           <p>广东省广州市珠江新城凯华国际中心36层</p>
         </li>
@@ -354,7 +359,7 @@ $(function(){
 	var map = new BMap.Map("myMap");
 	var point = new BMap.Point(113.333806,23.122976);
 	map.centerAndZoom(point, 15);
-  var myIcon = new BMap.Icon("img/logo.png", new BMap.Size(84,32));
+  var myIcon = new BMap.Icon("img/marker.png", new BMap.Size(86,84));
 	var marker = new BMap.Marker(point,{icon:myIcon});
 	map.addOverlay(marker);
   map.setMapStyleV2({styleJson:mapStyle});
